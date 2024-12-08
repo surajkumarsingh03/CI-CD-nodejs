@@ -1,20 +1,13 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-const port = 3000;
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello, World!\n');
+app.get('/', (req, res) => {
+    res.send('Hello, Docker!');
 });
 
-server.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/`);
-
-  // Automatically stop the server after 5 seconds
-  setTimeout(() => {
-    console.log('Shutting down server...');
-    server.close(() => {
-      console.log('Server shut down.');
-      process.exit(0); // Exit the process successfully
-    });
-  }, 30000);
+app.listen(3000, '0.0.0.0', () => {
+    console.log('Server is running on port 3000');
 });
+
+
