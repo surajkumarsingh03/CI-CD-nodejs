@@ -16,5 +16,5 @@ server.listen(port, () => {
       console.log('Server shut down.');
       process.exit(0); // Exit the process successfully
     });
-  }, 5000);
+  }, 30000);
 });
