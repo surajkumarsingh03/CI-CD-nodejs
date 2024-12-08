@@ -1,14 +1,11 @@
-// Require http header
-var http = require('http');
- 
-// Create server
-http.createServer(function (req, res) {
+const http = require('http');
 
-    // HTTP Status: 200 : OK
-    // Content Type: text/html
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    
-    // Send the response body as &quot;Hello World!&quot;  
-    res.end('Hello World!');
+const port = 3000; // Change to an available port
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Hello, World!\n');
+});
 
-}).listen(8080);
+server.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
